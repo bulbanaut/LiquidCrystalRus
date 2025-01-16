@@ -3,7 +3,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <inttypes.h>
-#include <avr/pgmspace.h>
+
+// fix for esp support
+#if (defined(__AVR__))
+  #include <avr\pgmspace.h>
+#else
+  #include <pgmspace.h>
+#endif
 
 #if defined(ARDUINO) && ARDUINO >= 100
   #include "Arduino.h"
